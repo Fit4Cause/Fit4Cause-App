@@ -1,4 +1,5 @@
 import 'package:fit4cause/features/ngo/ngo_profile.dart';
+import 'package:fit4cause/features/ngo/ngo_services.dart';
 import 'package:fit4cause/providers/pedometer_provider.dart';
 import 'package:fit4cause/utils/const.dart';
 import 'package:flutter/material.dart';
@@ -22,6 +23,12 @@ class _NGOScreenState extends State<NGOScreen> {
   //   ethClient = Web3Client(infura_url, httpClient!);
   //   super.initState();
   // }
+  NGOServices ngoServices = NGOServices();
+  @override
+  void initState() {
+    ngoServices.getNGOs();
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -85,8 +92,9 @@ class _NGOScreenState extends State<NGOScreen> {
                             ),
                             const SizedBox(height: 10),
                             Text(
-                              "${(PedometerModel.pedometerData["steps"] / 100)} FP",
-                              style: const TextStyle(color: kgreyColor, fontSize: 20),
+                              "${(PedometerModel.pedometerData["steps"] / 10)} FP",
+                              style: const TextStyle(
+                                  color: kgreyColor, fontSize: 20),
                             ),
                           ],
                         ),

@@ -41,6 +41,11 @@ dependencies:
   provider: ^6.1.2
   rflutter_alert: ^2.0.7
   modular_ui: ^0.0.5
+  firebase_auth: ^4.19.1
+  firebase_core: ^2.29.0
+  google_sign_in: ^6.2.1
+  health: ^4.6.0
+  http: ^1.2.1
 
 
 

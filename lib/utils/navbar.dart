@@ -3,9 +3,11 @@ import 'package:fit4cause/features/ngo/ngo_screen.dart';
 import 'package:fit4cause/features/profile/userProfile_screen.dart';
 import 'package:fit4cause/features/rewards/reward_screen.dart';
 import 'package:fit4cause/main.dart';
+import 'package:fit4cause/providers/pedometer_provider.dart';
 import 'package:fit4cause/utils/const.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:provider/provider.dart';
 
 class BottomNavigation extends StatefulWidget {
   const BottomNavigation({super.key});
@@ -29,22 +31,22 @@ class _BottomNavigationState extends State<BottomNavigation> {
     UserProfileScreen(),
   ];
 
-  // int currentIndex = 0;
+  int currentIndex = 0;
 
-  // void onTap(int index) {
-  //   setState(() {
-  //     currentIndex = index;
-  //   });
-  // }
+  void onTap(int index) {
+    setState(() {
+      currentIndex = index;
+    });
+  }
 
-  // @override
-  // void initState() {
-  //   super.initState();
-  //   final PedometerModel =
-  //       Provider.of<PedometerProvider>(context, listen: false);
+  @override
+  void initState() {
+    super.initState();
+    final PedometerModel =
+        Provider.of<PedometerProvider>(context, listen: false);
 
-  //   PedometerModel.getData();
-  // }
+    PedometerModel.getData();
+  }
 
   @override
   Widget build(BuildContext context) {

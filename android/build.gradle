@@ -4,7 +4,15 @@ buildscript {
         google()
         mavenCentral()
     }
+      dependencies {
 
+        // START: FlutterFire Configuration
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath 'com.google.gms:google-services:4.3.10'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        // END: FlutterFire Configuration
+    }
+}
 allprojects {
     
     repositories {
@@ -23,5 +31,4 @@ subprojects {
 
 tasks.register("clean", Delete) {
     delete rootProject.buildDir
-}
 }

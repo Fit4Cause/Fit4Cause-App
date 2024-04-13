@@ -1,3 +1,5 @@
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:fit4cause/features/welcome/welcome_screen.dart';
 import 'package:fit4cause/utils/const.dart';
 import 'package:fit4cause/utils/infotile.dart';
 import 'package:flutter/material.dart';
@@ -46,12 +48,12 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                           size: 22,
                         ),
                         onPressed: () {
-                          // FirebaseAuth.instance.signOut();
-                          // // final provider = Provider.of<GoogleSignInProvider>(
-                          // //     context,
-                          // //     listen: false);
-                          // // provider.logout();
-                          // Navigator.pushNamed(context, WelcomeScreen.id);
+                          FirebaseAuth.instance.signOut();
+                          // final provider = Provider.of<GoogleSignInProvider>(
+                          //     context,
+                          //     listen: false);
+                          // provider.logout();
+                          Navigator.pushNamed(context, WelcomeScreen.id);
                         },
                       ),
                     ],
@@ -114,19 +116,19 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
               color: kgreyColor),
           InfoTile(
             icon: FontAwesomeIcons.two,
-            title: "Harsh Pandit",
+            title: "Anurag Sharma",
             subtext: "7213 steps",
             color: kgreyColor,
           ),
           InfoTile(
             icon: FontAwesomeIcons.three,
-            title: "Yash Bharduaj",
+            title: "Prapti Bhardwaj",
             subtext: "3213 steps",
             color: kgreyColor,
           ),
           InfoTile(
             icon: FontAwesomeIcons.four,
-            title: "Dhairya Arora",
+            title: "Saurav",
             subtext: "3001 steps",
             color: kgreyColor,
           ),

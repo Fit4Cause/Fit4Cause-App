@@ -1,3 +1,4 @@
+import 'package:fit4cause/features/auth/auth_screen.dart';
 import 'package:fit4cause/providers/pedometer_provider.dart';
 import 'package:fit4cause/utils/button.dart';
 import 'package:fit4cause/utils/const.dart';
@@ -13,9 +14,9 @@ class WelcomeScreen extends StatelessWidget {
       builder: (context, PedometerModel, child) {
         return Scaffold(
           body: Container(
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               image: DecorationImage(
-                image: AssetImage("assets/welcomeScreen_bg.png"),
+                image: AssetImage("assets/welcomebg.png"),
                 fit: BoxFit.cover,
               ),
             ),
@@ -32,8 +33,8 @@ class WelcomeScreen extends StatelessWidget {
                       color: kgreyColor,
                       text: "Continue",
                       onpressed: () {
-                        // PedometerModel.getPermission();
-                        // Navigator.pushNamed(context, AuthPage.id);
+                        PedometerModel.getPermission();
+                        Navigator.pushNamed(context, AuthPage.id);
                       },
                     ),
                   ),

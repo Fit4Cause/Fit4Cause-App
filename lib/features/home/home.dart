@@ -1,4 +1,6 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:fit4cause/providers/pedometer_provider.dart';
+import 'package:fit4cause/providers/user_provider.dart';
 import 'package:fit4cause/utils/const.dart';
 import 'package:fit4cause/utils/infotile.dart';
 import 'package:flutter/material.dart';
@@ -14,16 +16,21 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  FirebaseAuth auth = FirebaseAuth.instance;
   @override
   Widget build(BuildContext context) {
     return Consumer<PedometerProvider>(
       builder: (context, PedometerModel, child) {
         int steps = PedometerModel.pedometerData["steps"];
+        print(PedometerModel.pedometerData["steps"]);
         // int steps = 6540;
         int calories = PedometerModel.pedometerData["calories"];
         int distance = PedometerModel.pedometerData["distance"];
         int duration = PedometerModel.pedometerData["duration"];
         int goal = 8000;
+        UserProvider userProvider = Provider.of<UserProvider>(context);
+        String name = userProvider.getName;
+        print(name + "name");
         double percentage = steps / goal;
         if (percentage > 1) {
           percentage = 1;
@@ -41,9 +48,9 @@ class _HomeScreenState extends State<HomeScreen> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        const Text(
-                          "Hi, Yash!",
-                          style: TextStyle(
+                        Text(
+                          "Hey $name!",
+                          style: const TextStyle(
                               color: kwhiteColor,
                               fontSize: 32,
                               fontWeight: FontWeight.w900),
